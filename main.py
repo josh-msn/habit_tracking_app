@@ -95,6 +95,8 @@ def main():
                 "9. Add Predefined Habits",
                 "10. Exit"
     """
+    database.create_table()
+    
     while True:
         choice = questionary.select(
             "=== Habit Tracker ===",
