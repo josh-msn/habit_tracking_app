@@ -96,20 +96,20 @@ def main():
                 "10. Exit"
     """
     database.create_table()
-    
+
     while True:
         choice = questionary.select(
             "=== Habit Tracker ===",
             choices=[
-                "1. List All Habits",
-                "2. List Habits by Periodicity",
-                "3. Mark Habit as Completed",
-                "4. Find Habit with Longest Streak",
-                "5. Find Longest Streak for a Specific Habit",
-                "6. Show Habits Status Overview",
-                "7. Create New Habit",
-                "8. Delete Habit",
-                "9. Add Predefined Habits",
+                "1. List all habits",
+                "2. List habits by periodicity",
+                "3. Mark habit as completed",
+                "4. Find habit with longest streak",
+                "5. Find longest streak for a specific habit",
+                "6. Show habits status overview",
+                "7. Create new habit",
+                "8. Delete habit",
+                "9. Add predefined habits",
                 "10. Exit"
             ]
         ).ask()
@@ -120,12 +120,12 @@ def main():
 
         try:
             # 1. List all habits
-            if choice == "1. List All Habits":
+            if choice == "1. List all habits":
                 habits = HabitManager.get_all_habits()
                 display_habits(habits)
 
              # 2. List habits by periodicity
-            elif choice == "2. List Habits by Periodicity":
+            elif choice == "2. List habits by periodicity":
                 periodicity = questionary.select(
                     "Select periodicity to filter by:",
                     choices=["daily", "weekly", "Cancel"]
@@ -137,7 +137,7 @@ def main():
                 display_habits(habits)
 
             # 3. Mark habit as completed
-            elif choice == "3. Mark Habit as Completed":
+            elif choice == "3. Mark habit as completed":
                 habits = HabitManager.get_all_habits()
                 if not habits:
                     console.print("No habits available to mark as completed.", style="bold yellow")
@@ -154,7 +154,7 @@ def main():
                 HabitManager.mark_habit_completed(selected_habit)
 
             # 4. Find habit with longest streak
-            elif choice == "4. Find Habit with Longest Streak":
+            elif choice == "4. Find habit with longest streak":
                 habit = Analytics.get_habit_with_longest_streak()
                 if habit:
                     console.print(f"\nHabit with the longest streak: [bold green]{habit.name}[/bold green] with a streak of [bold blue]{habit.longest_streak}[/bold blue] days/weeks.\n")
@@ -162,7 +162,7 @@ def main():
                     console.print("No habits found.", style="bold red")
 
             # 5. Find Longest Streak for a Specific Habit
-            elif choice == "5. Find Longest Streak for a Specific Habit":
+            elif choice == "5. Find longest streak for a specific Habit":
                 habits = HabitManager.get_all_habits()
                 if not habits:
                     console.print("No habits available.", style="bold yellow")
@@ -183,11 +183,11 @@ def main():
                     console.print(f"Habit '{selected_habit}' not found.", style="bold red")
 
             # 6. Show habits status overview
-            elif choice == "6. Show Habits Status Overview":
+            elif choice == "6. Show habits status overview":
                 display_status_overview()
 
             # 7. Create new habit
-            elif choice == "7. Create New Habit":
+            elif choice == "7. Create new habit":
                 try:
                     name = questionary.text(
                         "Enter the name of the habit (or type 'Cancel' to abort):"
@@ -229,7 +229,7 @@ def main():
                     console.print("\nOperation aborted by user.", style="bold yellow")
 
             # 8. Delete habit
-            elif choice == "8. Delete Habit":
+            elif choice == "8. Delete habit":
                 try:
                     habits = HabitManager.get_all_habits()
                     if not habits:
@@ -249,7 +249,7 @@ def main():
                     console.print("\nOperation aborted by user.", style="bold yellow")
 
             # 9. Add predefined habits
-            elif choice == "9. Add Predefined Habits":
+            elif choice == "9. Add predefined habits":
                 confirm = questionary.confirm(
                     "Are you sure you want to add predefined habits? This may create duplicates."
                 ).ask()
