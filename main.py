@@ -162,7 +162,7 @@ def main():
                     console.print("No habits found.", style="bold red")
 
             # 5. Find Longest Streak for a Specific Habit
-            elif choice == "5. Find longest streak for a specific Habit":
+            elif choice == "5. Find longest streak for a specific habit":
                 habits = HabitManager.get_all_habits()
                 if not habits:
                     console.print("No habits available.", style="bold yellow")
