@@ -23,7 +23,7 @@ The Habit Tracking App is a Python-based backend application designed to help us
 
 ### Steps
 
-1. Close the repository
+1. Clone the repository
 
 ```shell
 git clone https://github.com/josh-msn/habit_tracking_app.git
